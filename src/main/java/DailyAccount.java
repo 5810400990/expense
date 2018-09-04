@@ -1,5 +1,5 @@
 
-
+//นายดิศรณ์  ฐิติกรโกวิท  5810400990
 public class DailyAccount {
     private int moneyPocket=0;
     private int income =0;

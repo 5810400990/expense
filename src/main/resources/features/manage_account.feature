@@ -1,3 +1,4 @@
+
 Feature: Manage account
     As a user, I can add and view income and expense
     so that I know how much money I have.
