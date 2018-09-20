@@ -1,44 +1,65 @@
-//นายดิศรณ์  ฐิติกรโกวิท  5810400990
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class DailyAccountTest {
-
-private DailyAccount dailyAccount;
-
+class DailyAccountTest {
+    DailyAccount dailyAccount;
     @BeforeEach
     void init(){
-        dailyAccount= new DailyAccount(100);
-
+        dailyAccount = new DailyAccount();
+        dailyAccount.setMoneyPocket(100);
     }
+
     @Test
-    void  testReceive(){
-        dailyAccount.receiveMoney(50);
-        assertEquals(dailyAccount.getMoneyPocket(),150);
-        assertEquals(dailyAccount.getIncome(),50);
-        assertEquals(dailyAccount.getExpense(),0);
-        assertEquals(dailyAccount.show(),"My money pocket is "+150+"\nMy income of this month is "+50+"\nMy expense of this month is "+0);
+    void testReceive(){
+        dailyAccount.receiveMoney(100);
+        assertEquals(200,dailyAccount.getMoneyPocket());
+        assertEquals(100,dailyAccount.getIncome());
+        assertEquals(0,dailyAccount.getExpense());
+        assertEquals("Money pocket = 200 Income = 100 Expense = 0",dailyAccount.show());
 
     }
     @Test
     void testSpend() throws NotEnoughMoneyException {
+        dailyAccount.spendMoney(20);
+        assertEquals(80,dailyAccount.getMoneyPocket());
+        assertEquals(0,dailyAccount.getIncome());
+        assertEquals(20,dailyAccount.getExpense());
+        assertEquals("Money pocket = 80 Income = 0 Expense = 20",dailyAccount.show());
 
-        dailyAccount.spendMoney(50);
-        assertEquals(dailyAccount.getMoneyPocket(),50);
-        assertEquals(dailyAccount.getIncome(),0);
-        assertEquals(dailyAccount.getExpense(),50);
-        assertEquals(dailyAccount.show(),"My money pocket is "+50+"\nMy income of this month is "+0+"\nMy expense of this month is "+50);
+
 
     }
+
     @Test
-    void testShow() throws NotEnoughMoneyException {
-        dailyAccount.receiveMoney(100);
-        dailyAccount.spendMoney(50);
-        assertEquals(dailyAccount.getMoneyPocket(),150);
-        assertEquals(dailyAccount.getIncome(),100);
-        assertEquals(dailyAccount.getExpense(),50);
-        assertEquals(dailyAccount.show(),"My money pocket is "+150+"\nMy income of this month is "+100+"\nMy expense of this month is "+50);
+    void testSpendIncorrect() throws NotEnoughMoneyException {
+
+        assertThrows(NotEnoughMoneyException.class,
+                () -> dailyAccount.spendMoney(120));
+        assertEquals(100,dailyAccount.getMoneyPocket());
+        assertEquals(0,dailyAccount.getIncome());
+        assertEquals(0,dailyAccount.getExpense());
+        assertEquals("Money pocket = 100 Income = 0 Expense = 0",dailyAccount.show());
+
     }
+
+    @Test
+    void testEdit(){
+        dailyAccount.receiveMoney(100);
+        dailyAccount.edit("income/0/50");
+        assertEquals(150,dailyAccount.getMoneyPocket());
+        assertEquals(50,dailyAccount.getIncome());
+        assertEquals(0,dailyAccount.getExpense());
+        assertEquals("Money pocket = 150 Income = 50 Expense = 0",dailyAccount.show());
+
+
+
+    }
+
+
+
+
+
 }

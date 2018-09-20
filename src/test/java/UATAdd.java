@@ -9,6 +9,6 @@ import org.junit.runner.RunWith;
         format = {"pretty", "html:target/cucumber"},
         features = {"classpath:features/manage_account.feature"}
 )
-public class TestAccount {
+public class UATAdd {
 
 }

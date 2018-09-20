@@ -4,19 +4,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <TextField fx:id="ic" layoutX="197.0" layoutY="106.0" />
-      <Label layoutX="84.0" layoutY="111.0" text="รายรับ" />
-      <Label layoutX="80.0" layoutY="165.0" text="รายจ่าย" />
-      <TextField fx:id="exp" layoutX="197.0" layoutY="160.0" />
-      <Button layoutX="414.0" layoutY="106.0" mnemonicParsing="false" onAction="#income" text="เพิ่มเงิน" />
-      <Button layoutX="414.0" layoutY="160.0" mnemonicParsing="false" onAction="#expense" text="ใช้เงิน" />
-      <Label fx:id="acc" layoutX="200.0" layoutY="235.0" prefHeight="126.0" prefWidth="328.0" text="Label" />
-      <Label layoutX="43.0" layoutY="289.0" text="สรุปผลรายรับรายจ่าย" />
-      <Label layoutX="77.0" layoutY="65.0" text="เงินติดตัว" />
-      <TextField fx:id="mP" layoutX="197.0" layoutY="60.0" />
-      <Button layoutX="414.0" layoutY="60.0" mnemonicParsing="false" onAction="#createAccount" text="เพิ่มเงิน" />
+      <Label layoutX="206.0" layoutY="14.0" prefHeight="34.0" prefWidth="168.0" text="Daily  Account">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="summary" layoutX="160.0" layoutY="62.0" prefHeight="34.0" prefWidth="376.0" />
+      <Label fx:id="textInc" layoutX="179.0" layoutY="110.0" prefHeight="41.0" prefWidth="368.0" />
+      <Label fx:id="textExpense" layoutX="164.0" layoutY="174.0" prefHeight="41.0" prefWidth="391.0" />
+      <Label layoutX="47.0" layoutY="245.0" prefHeight="17.0" prefWidth="71.0" text="Income :" />
+      <Label layoutX="47.0" layoutY="306.0" prefHeight="17.0" prefWidth="71.0" text="Expense : " />
+      <TextField fx:id="inc" layoutX="181.0" layoutY="240.0" />
+      <TextField fx:id="exp" layoutX="181.0" layoutY="301.0" />
+      <Button layoutX="397.0" layoutY="240.0" mnemonicParsing="false" onAction="#receive_Money" text="Add" />
+      <Button layoutX="397.0" layoutY="301.0" mnemonicParsing="false" onAction="#spend_Money" text="Add" />
+      <Label layoutX="58.0" layoutY="413.0" prefHeight="17.0" prefWidth="49.0" text="Edit :" />
+      <TextField fx:id="textEdit" layoutX="181.0" layoutY="413.0" />
+      <Button layoutX="397.0" layoutY="408.0" mnemonicParsing="false" onAction="#edit" text="Add" />
+      <Label layoutX="46.0" layoutY="338.0" />
+      <Label layoutX="53.0" layoutY="347.0" text="กรอกในรูป" />
+      <Label layoutX="205.0" layoutY="347.0" text="income/index/value" />
+      <Label layoutX="202.0" layoutY="382.0" text="expense.index.value" />
+      <Label layoutX="41.0" layoutY="122.0" text="Income Account :" />
+      <Label layoutX="38.0" layoutY="186.0" text="Expense Account :" />
+      <Label layoutX="50.0" layoutY="71.0" text="Summary :" />
    </children>
 </Pane>
